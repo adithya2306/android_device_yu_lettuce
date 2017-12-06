@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2015, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2015,2017 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -55,6 +55,7 @@ static pthread_mutex_t g_handler_lock = PTHREAD_MUTEX_INITIALIZER;
 static uint16_t g_handler_history_count = 0; /* history count for handler */
 volatile uint32_t gMmCameraIntfLogLevel = 0;
 
+#define EXTRA_ENTRY 6
 #define CAM_SENSOR_FORMAT_MASK (1U<<25) // 25th bit tells whether its YUV sensor or not
 
 /*===========================================================================
@@ -1484,6 +1485,7 @@ void sort_camera_info(int num_cam)
 uint8_t get_num_of_cameras()
 {
     int rc = 0;
+    int i = 0;
     int dev_fd = 0;
     struct media_device_info mdev_info;
     int num_media_devices = 0;
@@ -1579,7 +1581,15 @@ uint8_t get_num_of_cameras()
     cfg.cfgtype = CFG_SINIT_PROBE_WAIT_DONE;
     cfg.cfg.setting = NULL;
     if (ioctl(sd_fd, VIDIOC_MSM_SENSOR_INIT_CFG, &cfg) < 0) {
-        CDBG_ERROR("failed");
+        CDBG_ERROR("failed.. Camera Daemon may not up so try again");
+        for(i = 0; i < MM_CAMERA_EVT_ENTRY_MAX + EXTRA_ENTRY; i++) {
+            if (ioctl(sd_fd, VIDIOC_MSM_SENSOR_INIT_CFG, &cfg) < 0) {
+                CDBG_ERROR("failed.. Camera Daemon may not up so try again");
+                continue;
+            } else {
+                   break;
+            }
+        }
     }
     close(sd_fd);
     dev_fd = 0;
