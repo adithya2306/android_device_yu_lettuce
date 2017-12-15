@@ -11,6 +11,10 @@ persist.camera.hal.debug.mask=0
 # Display
 ro.sf.lcd_density=320
 
+# Fling velocities
+ro.min.fling_velocity=160
+ro.max.fling_velocity=20000
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=0
