@@ -55,5 +55,9 @@ ro.telephony.default_network=9,9
 # Sensors
 ro.fusion.magfield.max=250
 
+# Touch response
+persist.vendor.qti.inputopts.enable=true
+persist.vendor.qti.inputopts.movetouchslop=0.6
+
 # UI
 sys.use_fifo_ui=1
