@@ -67,6 +67,12 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 # SELinux
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS += \
+    /system/vendor/lib64/lib-imsdpl.so|libshim_boringssl.so \
+    /system/vendor/lib64/lib-imscamera.so|libshim_camera.so \
+    /system/vendor/lib64/lib-imsvt.so|libshim_ims.so \
+
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
 
