@@ -6,8 +6,10 @@ LOCAL_CFLAGS += -D_ANDROID_
 
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
-LOCAL_C_INCLUDES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/media
+LOCAL_C_INCLUDES := \
+    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
+    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/media
+
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 LOCAL_C_INCLUDES += \
@@ -18,11 +20,7 @@ LOCAL_C_INCLUDES += \
     $(LOCAL_PATH)/../../../mm-image-codec/qexif \
     $(LOCAL_PATH)/../../../mm-image-codec/qomx_core
 
-ifeq ($(call is-board-platform-in-list, msm8974),true)
-    LOCAL_CFLAGS += -DMM_JPEG_CONCURRENT_SESSIONS_COUNT=2
-else
-    LOCAL_CFLAGS += -DMM_JPEG_CONCURRENT_SESSIONS_COUNT=1
-endif
+LOCAL_CFLAGS += -DMM_JPEG_CONCURRENT_SESSIONS_COUNT=1
 
 LOCAL_SRC_FILES := \
     src/mm_jpeg_queue.c \

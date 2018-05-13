@@ -1,4 +1,5 @@
 LOCAL_PATH := $(call my-dir)
+
 include $(CLEAR_VARS)
 
 LOCAL_CLANG_CFLAGS += \
@@ -52,23 +53,30 @@ LOCAL_C_INCLUDES := \
     system/media/camera/include \
     $(TARGET_OUT_HEADERS)/qcom/display
 
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/media
-ifeq ($(TARGET_TS_MAKEUP),true)
-LOCAL_CFLAGS += -DTARGET_TS_MAKEUP
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/tsMakeuplib/include
-endif
+LOCAL_C_INCLUDES += \
+    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
+    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/media
+
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
-LOCAL_SHARED_LIBRARIES := libcamera_client liblog libhardware libutils libcutils libdl libsensor
-LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libqdMetaData
-ifeq ($(TARGET_TS_MAKEUP),true)
-LOCAL_SHARED_LIBRARIES += libts_face_beautify_hal libts_detected_face_hal
-endif
-LOCAL_SHARED_LIBRARIES += libqdMetaData libqservice libbinder
+LOCAL_SHARED_LIBRARIES := \
+    libbinder \
+    libcamera_client \
+    liblog \
+    libhardware \
+    libutils \
+    libcutils \
+    libdl \
+    libsensor
+
+LOCAL_SHARED_LIBRARIES += \
+    libmmcamera_interface \
+    libmmjpeg_interface \
+    libqdMetaData \
+    libqservice
 
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := camera.msm8916
 LOCAL_32_BIT_ONLY := true
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
