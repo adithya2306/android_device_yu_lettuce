@@ -35,6 +35,12 @@ persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
+# Play store
+ro.com.google.clientidbase.am=android-micromax
+ro.com.google.clientidbase.gmm=android-micromax
+ro.com.google.clientidbase.ms=android-micromax
+ro.com.google.clientidbase.yt=android-micromax
+
 # Radio
 persist.data.target=dpm1
 persist.radio.multisim.config=dsds
