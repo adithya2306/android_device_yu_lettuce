@@ -55,7 +55,7 @@ static pthread_mutex_t g_handler_lock = PTHREAD_MUTEX_INITIALIZER;
 static uint16_t g_handler_history_count = 0; /* history count for handler */
 volatile uint32_t gMmCameraIntfLogLevel = 0;
 
-#define EXTRA_ENTRY 6
+#define EXTRA_ENTRY 8
 #define CAM_SENSOR_FORMAT_MASK (1U<<25) // 25th bit tells whether its YUV sensor or not
 
 /*===========================================================================
