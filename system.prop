@@ -48,3 +48,6 @@ ro.telephony.default_network=9,9
 
 # Sensors
 ro.fusion.magfield.max=250
+
+# UI
+sys.use_fifo_ui=1
