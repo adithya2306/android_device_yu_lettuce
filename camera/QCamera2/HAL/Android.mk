@@ -3,7 +3,9 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_CLANG_CFLAGS += \
-    -Wno-error=unused-parameter
+    -Wno-error
+
+LOCAL_CFLAGS += -Wno-error
 
 LOCAL_SRC_FILES := \
     QCamera2Factory.cpp \
