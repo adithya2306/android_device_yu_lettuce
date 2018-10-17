@@ -9,7 +9,7 @@ persist.camera.cpp.duplication=false
 persist.camera.hal.debug.mask=0
 
 # Display
-ro.sf.lcd_density=320
+ro.sf.lcd_density=280
 
 # Fling velocities
 ro.min.fling_velocity=160
