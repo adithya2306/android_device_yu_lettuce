@@ -139,10 +139,8 @@ PRODUCT_COPY_FILES += \
 
 # Telephony
 PRODUCT_PACKAGES += \
-    qti-telephony-common
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml
 
 # Thermals
 PRODUCT_COPY_FILES += \
