@@ -78,6 +78,7 @@ PRODUCT_COPY_FILES += \
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
+    ims_ext_common.xml \
     libshims_boringssl \
     libshims_camera \
     libshims_ims
