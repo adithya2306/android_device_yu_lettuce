@@ -41,16 +41,16 @@ on fs
 
 service imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
-    user system
+    user radio
     socket ims_qmid stream 0660 system radio
     group radio net_raw log diag oem_2950
     writepid /dev/cpuset/system-background/tasks
 
 service imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
-    user system
+    user radio
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log diag net_admin oem_2950
+    group wifi radio inet net_raw log diag net_admin oem_2950
     writepid /dev/cpuset/system-background/tasks
     disabled
 
