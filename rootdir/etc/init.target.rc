@@ -39,6 +39,10 @@ on fs
     write /proc/sys/vm/swappiness 0
     write /proc/sys/vm/vfs_cache_pressure 80
 
+on post-fs-data
+    # Start RIL daemon
+    start ril-daemon
+
 service imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user radio
