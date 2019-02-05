@@ -29,4 +29,7 @@
     <string name="quick_settings_tiles_default" translatable="false">
         wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,cast,location,hotspot,saver
     </string>
+
+    <!-- Whether to show HD icon in the status bar for volte -->
+    <bool name="config_display_hd_volte">true</bool>
 </resources>
