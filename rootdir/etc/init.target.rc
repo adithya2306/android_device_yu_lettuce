@@ -64,8 +64,49 @@ on fs
     write /proc/sys/vm/vfs_cache_pressure 80
 
 on post-fs-data
+    mkdir /data/misc/ipa 0700 net_admin net_admin
+
+    # Create the directories used by CnE subsystem
+    mkdir /data/connectivity 0771 system system
+    chown system system /data/connectivity
+
+    # Create the directories used by DPM subsystem
+    mkdir /data/dpm 0771 system system
+    chown system system /data/dpm
+
+    mkdir /data/dpm/nsrm 0771 system system
+    chown system system /data/dpm/nsrm
+
+    # Mark the copy complete flag to not completed
+    write /data/misc/radio/copy_complete 0
+    chown radio radio /data/misc/radio/copy_complete
+    chmod 0660 /data/misc/radio/copy_complete
+
+    # File flags for prebuilt ril db file
+    write /data/misc/radio/prebuilt_db_support 1
+    chown radio radio /data/misc/radio/prebuilt_db_support
+    chmod 0400 /data/misc/radio/prebuilt_db_support
+    write /data/misc/radio/db_check_done 0
+    chown radio radio /data/misc/radio/db_check_done
+    chmod 0660 /data/misc/radio/db_check_done
+
     # Start RIL daemon
     start ril-daemon
+    start ril-daemon2
+
+service tftp_server /system/vendor/bin/tftp_server
+   class main
+   user root
+
+service qcom-sh  /system/vendor/bin/init.qcom.sh
+    class late_start
+    user root
+    oneshot
+
+service per_mgr /system/vendor/bin/pm-service
+    class core
+    user system
+    group system net_raw
 
 service imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
