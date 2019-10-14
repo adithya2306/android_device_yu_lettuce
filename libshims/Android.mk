@@ -79,7 +79,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := ims/MediaBuffer.cpp
-LOCAL_SHARED_LIBRARIES := libstagefright_foundation libui libgui
+LOCAL_SHARED_LIBRARIES := libstagefright_foundation libui libgui libmedia
 LOCAL_MODULE := libshim_ims
 LOCAL_MODULE_TAGS := optional
 
