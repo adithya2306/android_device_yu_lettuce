@@ -29,3 +29,21 @@ on boot
     # Touchscreen
     chown system system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/double_tap_enable
     chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/double_tap_enable
+
+service imsqmidaemon /system/vendor/bin/imsqmidaemon
+    class main
+    user system
+    socket ims_qmid stream 0660 system radio
+    group radio net_raw log diag oem_2950
+    writepid /dev/cpuset/system-background/tasks
+
+service imsdatadaemon /system/vendor/bin/imsdatadaemon
+    class main
+    user system
+    socket ims_datad stream 0660 system radio
+    group system wifi radio inet net_raw log diag net_admin oem_2950
+    writepid /dev/cpuset/system-background/tasks
+    disabled
+
+on property:sys.ims.QMI_DAEMON_STATUS=1
+    start imsdatadaemon

@@ -64,6 +64,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
+
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -114,6 +121,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
 
+# Telephony
+PRODUCT_PACKAGES += \
+    qti-telephony-common
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Thermals
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
@@ -131,6 +145,9 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.usb.vid=2a96
 
 # Wi-Fi
+PRODUCT_PACKAGES += \
+    libwpa_client
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin

@@ -11,6 +11,15 @@ persist.camera.hal.debug.mask=0
 # Display
 ro.sf.lcd_density=320
 
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=0
+persist.dbg.wfc_avail_ovr=0
+persist.ims.disableADBLogs=1
+persist.ims.disableDebugLogs=1
+persist.ims.disableIMSLogs=1
+persist.ims.disableQXDMLogs=1
+
 # Radio
 persist.data.target=dpm1
 persist.radio.multisim.config=dsds
