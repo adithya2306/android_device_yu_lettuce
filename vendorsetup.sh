@@ -1,0 +1,3 @@
+add_lunch_combo wave_lettuce-userdebug
+add_lunch_combo wave_lettuce-eng
+add_lunch_combo wave_lettuce-user
