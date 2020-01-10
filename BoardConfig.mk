@@ -23,9 +23,6 @@ DEVICE_PATH := device/yu/lettuce
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 
-# Assertions
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
