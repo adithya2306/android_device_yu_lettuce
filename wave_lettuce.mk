@@ -17,6 +17,7 @@ $(call inherit-product, device/yu/lettuce/full_lettuce.mk)
 
 # Inherit some common WaveOS stuff
 TARGET_BOOT_ANIMATION_RES := 720
+WAVE_BUILD_TYPE := OFFICIAL
 $(call inherit-product, vendor/wave/configs/common.mk)
 
 # Must define platform variant before including any common things
