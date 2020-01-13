@@ -13,4 +13,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/wave_lettuce.mk
+    $(LOCAL_DIR)/pa_lettuce.mk
+
+COMMON_LUNCH_CHOICES := \
+    pa_lettuce-userdebug \
+    pa_lettuce-eng \
+    pa_lettuce-user

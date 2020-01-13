@@ -20,6 +20,9 @@ include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/yu/lettuce
 
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
+
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 
@@ -28,6 +31,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Camera
 BOARD_CAMERA_SENSORS := ov5670_q5v41b ov8865_q8v18a
+
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Filesystem
@@ -66,6 +70,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # SELinux
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+TARGET_EXCLUDE_QCOM_SEPOLICY := true
 
 # Shims
 TARGET_LD_SHIM_LIBS += \
@@ -74,7 +79,7 @@ TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib64/lib-imsvt.so|libshim_ims.so \
 
 # Snapdragon LLVM
-TARGET_USE_SDCLANG := true
+#TARGET_USE_SDCLANG := true
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
