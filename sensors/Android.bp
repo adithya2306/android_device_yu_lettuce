@@ -15,5 +15,6 @@ cc_library_static {
     cflags: [
         "-Wall",
         "-Werror",
+        "-Wno-format",
     ],
 }
