@@ -70,11 +70,6 @@ TARGET_DRAW_O_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/letter_o_enab
 TARGET_DRAW_M_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/letter_m_enable"
 TARGET_DRAW_W_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/letter_w_enable"
 TARGET_DRAW_S_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/letter_s_enable"
-TARGET_ONE_FINGER_SWIPE_UP_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/up_swipe_enable"
-TARGET_ONE_FINGER_SWIPE_DOWN_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/down_swipe_enable"
-TARGET_ONE_FINGER_SWIPE_LEFT_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/left_swipe_enable"
-TARGET_ONE_FINGER_SWIPE_RIGHT_NODE := "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-0040/right_swipe_enable"
-
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
