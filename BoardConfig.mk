@@ -52,9 +52,6 @@ BOARD_ROOT_EXTRA_FOLDERS := firmware persist
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 
-# HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-
 # Kernel
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
